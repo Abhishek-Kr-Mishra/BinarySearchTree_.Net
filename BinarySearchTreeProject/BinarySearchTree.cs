@@ -6,6 +6,7 @@ namespace BinarySearchTreeProject
 {
     class BinarySearchTree<T> where T : IComparable
     {
+        int count = 0;
         Node<T> Root;
         Node<T> Current;
         /// <summary>
@@ -19,6 +20,7 @@ namespace BinarySearchTreeProject
             {
                 this.Root = new Node<T>(data);
                 this.Current = Root;
+                count++;
                 return;
             }
             ///If data is less than data in root then current position node will point to left.
@@ -29,7 +31,7 @@ namespace BinarySearchTreeProject
                 {
                     this.Current.leftNode = new Node<T>(data);
                     this.Current = Root;
-
+                    count++;
                 }
                 else
                 {
@@ -44,6 +46,7 @@ namespace BinarySearchTreeProject
                 {
                     this.Current.rightNode = new Node<T>(data);
                     this.Current = Root;
+                    count++;
                 }
                 else
                 {
@@ -74,6 +77,13 @@ namespace BinarySearchTreeProject
                 Display(node.rightNode);
             }
 
+        }
+        /// <summary>
+        /// Gets the size of binary search tree..
+        /// </summary>
+        public int GetSize()
+        {
+            return count;
         }
     }
 }
